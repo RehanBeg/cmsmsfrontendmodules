@@ -1,0 +1,8 @@
+encode_subject = true
+==== subject ====
+New registration on {sitename}
+==== body ====
+<p>A new user has now registered on {sitename}</p>
+<p>This message does not mean that the user has completed the process, just that he has registred.</p>
+
+<p>Username: <strong>{$user->username|default:'** unknown **'}</strong></p>

@@ -1,0 +1,26 @@
+1.  DONE Task to clear expired users (according to settings)
+2.  Task to clear expired authtokens
+3.  DONE Blacklist/Whitelist usernames (uses a processor)
+4.  Documentation
+    - features
+    - security mechanisms
+    - actions
+    - params
+    - inline
+    - config entries
+    - templates
+    - emails
+    - hooks
+    - user object
+    - fields array
+    - background tasks
+5.  DONE Admin CRUD
+6.  DONE Admin Push user live
+7.  DONE Admin Create new verifycode for user
+    (sends the registration email again with new code)
+    - use regProcessor
+8.  DONE: Email notify new registration
+9.  DONE: Lang strings
+10. Admin notification for old, unexpired registrations
+11. DONE Task to Send reminder emails every N hours after registering
+12. CLI Commands

@@ -1,0 +1,18 @@
+encode_subject=true
+priority=2
+==== subject ====
+{strip}{sitename} - Verify your email address{/strip}
+==== body ====
+{strip}
+{* this may have been initialized by an administrator... cannot reliably determine what language to use... *}
+{* we also have to specify a page that the URL should redirect to.  We get this from the settings *}
+{cms_action_url action=verifyonly code=$user->verify_code uid=$user->id returnid=$pageid_onverify assign=url}
+<h3>Hello {$user->username}<h3>
+<p>For security purposes, could you please verify that you are the true owner of your account by clicking <a href="{$url}">here</a> and entering the following code into the provided form.</p>
+<code>{$user->verify_code}</code>
+<p>If your email client does not allow clicking on the link you can copy this URL into your browser:</p>
+<code>{$url}</code>
+
+<hr/>
+<p>Thank you from the team at <span>{sitename}</span></p>
+{/strip}

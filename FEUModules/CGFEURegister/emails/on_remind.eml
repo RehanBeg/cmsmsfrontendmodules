@@ -1,0 +1,20 @@
+encode_subject = true
+==== subject ====
+Please complete your registration
+==== body ====
+<h3>Hello <strong>{$user->username}</strong></h3>
+
+<p>It appears you have not finished registering with <strong>{sitename}</strong> yet.</p>
+
+<p>We previously sent you an email containing a link that allowed you to complete your registration on {sitename}.
+   If you did not receive that email, or have lost it, it is not an issue.  You can request another code by clicking on the link below.
+</p>
+
+<p style="text-align: center;">
+     {* we have a page id resolved from the settings page, if not set in the settings the default content page will be used *}
+     {* you could specify any page here *}
+     {cms_action_url module=CGFEURegister action=repeatcode returnid=$repeatcode_page assign='repeatcode_url'}
+     <a href="{$repeatcode_url}"><button>Request code</button></a>
+</p>
+
+<p>If you received this email in error, you can safely ignore it.</p>

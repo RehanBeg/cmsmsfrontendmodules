@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <title><![CDATA[FrontEndUsers for #cmsms by calguy1000]]></title>
+  <parser>
+    <target>/tmp/FrontEndUsers.x</target>
+  </parser>
+  <transformer>
+    <target>docs/apidoc</target>
+  </transformer>
+  <files>
+    <file>FrontEndUsers.module.php</file>
+    <file>lib/class.UserManipulator.php</file>
+    <file>lib/class.feu_user_query.php</file>
+    <file>lib/interface.UserInterface.php</file>
+    <file>lib/class.Filter.php</file>
+    <file>lib/class.FilterResultSet.php</file>
+    <file>lib/class.userSet.php</file>
+    <file>lib/class.AbstractUser.php</file>
+    <file>lib/class.User.php</file>
+    <file>lib/class.AuthTokenUser.php</file>
+    <file>lib/class.AuthToken.php</file>
+  </files>
+</phpdoc>

@@ -1,0 +1,24 @@
+encode_subject=true
+==== subject ====
+Your verification code
+==== body ====
+<h3>Hello <strong>{$user->username}</strong></h3>
+
+{cms_action_url module=CGFEURegister action=verify uid=$user->id code=$data->verify_code assign=verify_url}
+<p>We are sorry that you have had a problem getting your verification code.  Lets hope that this one works.</p>
+
+<p>Please click the button below.</p>
+<p style="text-align: center;">
+    <a href="{$verify_url}" target="__blank"><button>Verify</button></a>
+</p>
+
+<p>If your browser does not allow you to click on links, then you can copy and paste the following URL into your browser.</p>
+<pre><code>{$verify_url}</code></pre>
+
+{if $data->expires}
+<p>This code will expire at approximately {$data->expires|date_format:'%x %X'} <em>(server time)</em>.</p>
+{/if}
+
+<hr/>
+<p>Thank you for registering with {sitename}</p>
+<p>If you are receiving this email incorrectly, you can safely ignore it.</p>

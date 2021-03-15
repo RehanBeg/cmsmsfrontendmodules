@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>FrontEndUsers 3.2</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">FrontEndUsers 3.2</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/FrontEndUsers.html">\FrontEndUsers</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">4</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">8</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1270238041"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1270238041" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1099470624"></a>
+                                <a href="../namespaces/FrontEndUsers.html" style="margin-left: 30px; padding-left: 0">FrontEndUsers</a>
+            </div>
+            <div id="namespace-1099470624" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/FrontEndUsers.UserInterface.html">UserInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/FrontEndUsers.AbstractUser.html">AbstractUser</a></li>
+                                                    <li class="class"><a href="../classes/FrontEndUsers.AuthToken.html">AuthToken</a></li>
+                                                    <li class="class"><a href="../classes/FrontEndUsers.AuthTokenUser.html">AuthTokenUser</a></li>
+                                                    <li class="class"><a href="../classes/FrontEndUsers.Exception.html">Exception</a></li>
+                                                    <li class="class"><a href="../classes/FrontEndUsers.Filter.html">Filter</a></li>
+                                                    <li class="class"><a href="../classes/FrontEndUsers.User.html">User</a></li>
+                                                    <li class="class"><a href="../classes/FrontEndUsers.UserManipulator.html">UserManipulator</a></li>
+                                                    <li class="class"><a href="../classes/FrontEndUsers.UserNotFoundException.html">UserNotFoundException</a></li>
+                                                    <li class="class"><a href="../classes/FrontEndUsers.userSet.html">userSet</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/feu_user_query.html">feu_user_query</a></li>
+                                                    <li class="class"><a href="../classes/feu_user_query_opt.html">feu_user_query_opt</a></li>
+                                                    <li class="class"><a href="../classes/FrontEndUsers.html">FrontEndUsers</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\</small>feu_user_query_opt</h1>
+                    <p><em>This class describes a single option to an feu_user_query</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/feu_user_query_opt.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#method_get_type" class="">get_type()</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#method_get_expr" class="">get_expr()</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#method_get_opt" class="">get_opt()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_USERID" class="">MATCH_USERID</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_USERNAME" class="">MATCH_USERNAME</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_USERNAME_RE" class="">MATCH_USERNAME_RE</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_PASSWORD" class="">MATCH_PASSWORD</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_EXPIRES_LT" class="">MATCH_EXPIRES_LT</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_NOTEXPIRED" class="">MATCH_NOTEXPIRED</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_NOTDISABLED" class="">MATCH_NOTDISABLED</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_DISABLED" class="">MATCH_DISABLED</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_MUSTVALIDATE" class="">MATCH_MUSTVALIDATE</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_GROUP" class="">MATCH_GROUP</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_GROUPID" class="">MATCH_GROUPID</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_PROPERTY" class="">MATCH_PROPERTY</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_PROPERTY_RE" class="">MATCH_PROPERTY_RE</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_USERLIST" class="">MATCH_USERLIST</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_USERNAMELIST" class="">MATCH_USERNAMELIST</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_LOGGEDIN" class="">MATCH_LOGGEDIN</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_CREATED_GE" class="">MATCH_CREATED_GE</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_CREATED_LT" class="">MATCH_CREATED_LT</a><br />
+                                                                    <a href="../classes/feu_user_query_opt.html#constant_MATCH_NOTHASPROPERTY" class="">MATCH_NOTHASPROPERTY</a><br />
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/lib.class.feu_user_query.html"><div class="path-wrapper">lib/class.feu_user_query.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">FrontEndUsers</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\feu_user_query_opt</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                                    <a id="constants" name="constants"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Constants</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_USERID" name="constant_MATCH_USERID" class="anchor"></a>
+            <article id="constant_MATCH_USERID" class="constant">
+                <h3 class="">MATCH_USERID</h3>
+                <pre class="signature">MATCH_USERID</pre>
+                <p><em>This option matches a single userid</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_USERNAME" name="constant_MATCH_USERNAME" class="anchor"></a>
+            <article id="constant_MATCH_USERNAME" class="constant">
+                <h3 class="">MATCH_USERNAME</h3>
+                <pre class="signature">MATCH_USERNAME</pre>
+                <p><em>This option matches a single username</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_USERNAME_RE" name="constant_MATCH_USERNAME_RE" class="anchor"></a>
+            <article id="constant_MATCH_USERNAME_RE" class="constant">
+                <h3 class="">MATCH_USERNAME_RE</h3>
+                <pre class="signature">MATCH_USERNAME_RE</pre>
+                <p><em>This option matches a username regular expression</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_PASSWORD" name="constant_MATCH_PASSWORD" class="anchor"></a>
+            <article id="constant_MATCH_PASSWORD" class="constant">
+                <h3 class="">MATCH_PASSWORD</h3>
+                <pre class="signature">MATCH_PASSWORD</pre>
+                <p><em>This option matches a single password.</em></p>
+                <p>The password string must be encrypted.</p>
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_EXPIRES_LT" name="constant_MATCH_EXPIRES_LT" class="anchor"></a>
+            <article id="constant_MATCH_EXPIRES_LT" class="constant">
+                <h3 class="">MATCH_EXPIRES_LT</h3>
+                <pre class="signature">MATCH_EXPIRES_LT</pre>
+                <p><em>This option allows matching users whos expiry date is less than a specified timestamp.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_NOTEXPIRED" name="constant_MATCH_NOTEXPIRED" class="anchor"></a>
+            <article id="constant_MATCH_NOTEXPIRED" class="constant">
+                <h3 class="">MATCH_NOTEXPIRED</h3>
+                <pre class="signature">MATCH_NOTEXPIRED</pre>
+                <p><em>This option allows matching uers who have not yet expired</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_NOTDISABLED" name="constant_MATCH_NOTDISABLED" class="anchor"></a>
+            <article id="constant_MATCH_NOTDISABLED" class="constant">
+                <h3 class="">MATCH_NOTDISABLED</h3>
+                <pre class="signature">MATCH_NOTDISABLED</pre>
+                <p><em>This option allows matching users who are not disabled.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_DISABLED" name="constant_MATCH_DISABLED" class="anchor"></a>
+            <article id="constant_MATCH_DISABLED" class="constant">
+                <h3 class="">MATCH_DISABLED</h3>
+                <pre class="signature">MATCH_DISABLED</pre>
+                <p><em>This option allows matching users who are disabled.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_MUSTVALIDATE" name="constant_MATCH_MUSTVALIDATE" class="anchor"></a>
+            <article id="constant_MATCH_MUSTVALIDATE" class="constant">
+                <h3 class="">MATCH_MUSTVALIDATE</h3>
+                <pre class="signature">MATCH_MUSTVALIDATE</pre>
+                <p><em>This option allows matching users who must validate their account.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_GROUP" name="constant_MATCH_GROUP" class="anchor"></a>
+            <article id="constant_MATCH_GROUP" class="constant">
+                <h3 class="">MATCH_GROUP</h3>
+                <pre class="signature">MATCH_GROUP</pre>
+                <p><em>This option allos matching users who are members of a specific named group.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_GROUPID" name="constant_MATCH_GROUPID" class="anchor"></a>
+            <article id="constant_MATCH_GROUPID" class="constant">
+                <h3 class="">MATCH_GROUPID</h3>
+                <pre class="signature">MATCH_GROUPID</pre>
+                <p><em>This option allows matching users who are members of a specific group (by id)</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_PROPERTY" name="constant_MATCH_PROPERTY" class="anchor"></a>
+            <article id="constant_MATCH_PROPERTY" class="constant">
+                <h3 class="">MATCH_PROPERTY</h3>
+                <pre class="signature">MATCH_PROPERTY</pre>
+                <p><em>This action allows matching users who have a specific property and value.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_PROPERTY_RE" name="constant_MATCH_PROPERTY_RE" class="anchor"></a>
+            <article id="constant_MATCH_PROPERTY_RE" class="constant">
+                <h3 class="">MATCH_PROPERTY_RE</h3>
+                <pre class="signature">MATCH_PROPERTY_RE</pre>
+                <p><em>This action allows matching users who have a specific property the value of which matches a regular expression.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_USERLIST" name="constant_MATCH_USERLIST" class="anchor"></a>
+            <article id="constant_MATCH_USERLIST" class="constant">
+                <h3 class="">MATCH_USERLIST</h3>
+                <pre class="signature">MATCH_USERLIST</pre>
+                <p><em>This action allows matching users by a specified list of uids.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_USERNAMELIST" name="constant_MATCH_USERNAMELIST" class="anchor"></a>
+            <article id="constant_MATCH_USERNAMELIST" class="constant">
+                <h3 class="">MATCH_USERNAMELIST</h3>
+                <pre class="signature">MATCH_USERNAMELIST</pre>
+                <p><em>this action allows matching users by a specified list of usernames.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_LOGGEDIN" name="constant_MATCH_LOGGEDIN" class="anchor"></a>
+            <article id="constant_MATCH_LOGGEDIN" class="constant">
+                <h3 class="">MATCH_LOGGEDIN</h3>
+                <pre class="signature">MATCH_LOGGEDIN</pre>
+                <p><em>this action allows amtching users that have non expired authorization tokens.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_CREATED_GE" name="constant_MATCH_CREATED_GE" class="anchor"></a>
+            <article id="constant_MATCH_CREATED_GE" class="constant">
+                <h3 class="">MATCH_CREATED_GE</h3>
+                <pre class="signature">MATCH_CREATED_GE</pre>
+                <p><em>This action allows matching users that were created after a specified timestamp.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_CREATED_LT" name="constant_MATCH_CREATED_LT" class="anchor"></a>
+            <article id="constant_MATCH_CREATED_LT" class="constant">
+                <h3 class="">MATCH_CREATED_LT</h3>
+                <pre class="signature">MATCH_CREATED_LT</pre>
+                <p><em>This action allows matching users that were created before a specified timestamp.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATCH_NOTHASPROPERTY" name="constant_MATCH_NOTHASPROPERTY" class="anchor"></a>
+            <article id="constant_MATCH_NOTHASPROPERTY" class="constant">
+                <h3 class="">MATCH_NOTHASPROPERTY</h3>
+                <pre class="signature">MATCH_NOTHASPROPERTY</pre>
+                <p><em>This action allows matching users that do not have a value for the specified property</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(string  <span class="argument">$type</span>, mixed  <span class="argument">$expr = null</span>, mixed  <span class="argument">$opt = null</span>) </pre>
+                <p><em>Constructor.</em></p>
+                <p>this is used to create a new option to provide to an feu_user_query object.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>The match type constant.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$expr </td>
+                                <td><p>An optional expression or data to the match type.  Different match types may require one or two arguments.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$opt </td>
+                                <td><p>More optional data to the match type.  Different match types may require one or two arguments.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get_type" name="method_get_type" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get_type()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get_type() : string</pre>
+                <p><em>Returns the match type of an option.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get_expr" name="method_get_expr" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get_expr()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get_expr() : mixed</pre>
+                <p><em>Returns any expression provided for the option.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get_opt" name="method_get_opt" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get_opt()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get_opt() : mixed</pre>
+                <p><em>Returns any optional data provided for the option</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">class.feu_user_query.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/lib/class.feu_user_query.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/FrontEndUsers.html">\FrontEndUsers</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on December 27th, 2019 at 16:30.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

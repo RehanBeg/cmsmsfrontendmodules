@@ -1,0 +1,8 @@
+encode_subject = true
+==== subject ====
+Registration completed on {sitename}
+==== body ====
+<p>A new user has completed the registration process and is now a completed user on {sitename}.</p>
+
+<p>Username: <strong>{$user->username|default:'** unknown **'}</strong></p>
+<p>FEU UID:  <strong>{$feu_uid}</strong></p>
